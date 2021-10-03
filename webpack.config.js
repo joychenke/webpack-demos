@@ -36,7 +36,8 @@ module.exports = {
                 use: [  // 从后向前依次使用下面列出的两个loader
                     // 'style-loader',
                     MiniCssExtractPlugin.loader,
-                    'css-loader'
+                    'css-loader',
+                    'postcss-loader'
                 ]
             }, {
                 test: /\.less$/, //针对less后缀的文件，用use中的loader
@@ -44,7 +45,8 @@ module.exports = {
                     // 'style-loader',
                     MiniCssExtractPlugin.loader,
                     'css-loader',
-                    'less-loader'
+                    'less-loader',
+                    'postcss-loader'
                 ]
             }
         ]
