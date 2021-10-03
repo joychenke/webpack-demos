@@ -2,6 +2,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
+const TerserWebpackPlugin = require('terser-webpack-plugin')
 
 module.exports = {
     mode: 'production',
@@ -9,7 +10,7 @@ module.exports = {
     output: {
         filename: 'index.js',
         // path是绝对路径
-        path: path.resolve(__dirname, 'adviser_optimize')
+        path: path.resolve(__dirname, 'adviser_optimize_js')
     },
     devServer: {
         port: 3000,
@@ -19,7 +20,8 @@ module.exports = {
     },
     optimization: {
         minimizer: [
-            new OptimizeCssAssetsWebpackPlugin()
+            new OptimizeCssAssetsWebpackPlugin(),
+            new TerserWebpackPlugin()
         ]
     },
     plugins: [new HtmlWebpackPlugin({
