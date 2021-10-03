@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
 
 module.exports = {
     mode: 'production',
@@ -8,13 +9,18 @@ module.exports = {
     output: {
         filename: 'index.js',
         // path是绝对路径
-        path: path.resolve(__dirname, 'adviser')
+        path: path.resolve(__dirname, 'adviser_optimize')
     },
     devServer: {
         port: 3000,
         open: true,
         hot: true
         // compress: true
+    },
+    optimization: {
+        minimizer: [
+            new OptimizeCssAssetsWebpackPlugin()
+        ]
     },
     plugins: [new HtmlWebpackPlugin({
         template: './src/index.html',
