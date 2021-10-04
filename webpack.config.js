@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
 const TerserWebpackPlugin = require('terser-webpack-plugin')
+const Webpack = require('webpack')
 
 module.exports = {
     mode: 'production',
@@ -24,7 +25,11 @@ module.exports = {
             new TerserWebpackPlugin()
         ]
     },
-    plugins: [new HtmlWebpackPlugin({
+    plugins: [
+        new Webpack.ProvidePlugin({
+            $: 'jquery'    // 将jQuery加到全局变量中
+        }),
+        new HtmlWebpackPlugin({
         template: './src/index.html',
         filename: 'index.html',
         minify: {
