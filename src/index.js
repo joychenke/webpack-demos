@@ -1,5 +1,5 @@
+import './info.js'
 const myName = require('./name.js')
-require('./info.js')
 require('./index.css')
 require('./index.less')
 const map = new Map([[1,2], ['a','b']])
