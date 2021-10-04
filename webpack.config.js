@@ -40,6 +40,11 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.js$/, //匹配js文件
+                use: ['babel-loader'],
+                include: path.resolve(__dirname, 'src')
+            },
+            {
                 test: /\.css$/,   // 针对css后缀的文件，用use中的loader
                 use: [  // 从后向前依次使用下面列出的两个loader
                     // 'style-loader',
