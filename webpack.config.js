@@ -41,7 +41,14 @@ module.exports = {
         rules: [
             {
                 test: /\.js$/, //匹配js文件
-                use: ['babel-loader'],
+                use: ['babel-loader', 
+                    {
+                        loader: 'eslint-loader',
+                        options: {
+                            enforce: 'pre'  // 前置loader，webpack会优先处理
+                        }
+                    }
+                ],
                 include: path.resolve(__dirname, 'src')
             },
             {
