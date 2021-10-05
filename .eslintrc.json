@@ -66,5 +66,8 @@
         "node": true,
         "jquery": true
     },
+    "globals": {
+        "$day": true
+    },
     "parser": "babel-eslint"
 }
