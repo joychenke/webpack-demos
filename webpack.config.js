@@ -45,6 +45,13 @@ module.exports = {
     module: {
         rules: [
             {
+                test: require.resolve('dayjs'),
+                loader: 'expose-loader',
+                options: {
+                    exposes: ['$day']
+                }
+            },
+            {
                 test: /\.js$/, //匹配js文件
                 use: ['babel-loader', 
                     {
